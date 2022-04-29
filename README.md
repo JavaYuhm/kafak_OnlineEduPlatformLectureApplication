@@ -1,3 +1,29 @@
+### Spring Boot Kafka 설정
+
+``` yml
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: lecture
+    producer:
+      bootstrap-servers: localhost:9092
+```
+
+![image](https://user-images.githubusercontent.com/99159721/165893837-1ff0604c-d565-4c42-a5ce-3df4a227f256.png)
+
+
+강의 열람 시 -> getRating(강의 별점 호출 Api 쪽에 Message 전송)
+
+### Docker 명령어
+
+docker container ls
+docker exec -it
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lecture-open
+
+![image](https://user-images.githubusercontent.com/99159721/165893739-d8e42434-078d-4aa3-a432-bba12e0bb9aa.png)
+
+![Uploading image.png…]()
+
 
 ### Lecture
 
