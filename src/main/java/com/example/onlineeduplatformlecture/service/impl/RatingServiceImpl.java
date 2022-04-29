@@ -6,7 +6,11 @@ import com.example.onlineeduplatformlecture.dto.RatingSaveDto;
 import com.example.onlineeduplatformlecture.model.Rating;
 import com.example.onlineeduplatformlecture.repository.RatingRepository;
 import com.example.onlineeduplatformlecture.service.RatingService;
+
+import java.io.IOException;
 import java.util.stream.Collectors;
+
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -46,5 +50,12 @@ public class RatingServiceImpl implements RatingService {
     @Override
     public Mono<RatingSaveDto> saveRate(Rating rating) {
         return ratingRepository.save(rating).map(r -> new RatingSaveDto(r.getRatingId()));
+    }
+
+    @KafkaListener(topics = "lecture-open", groupId = "lecture")
+    public void consume(String lectureId) throws IOException {
+        System.out.println(String.format("Consumed message : %s", lectureId));
+
+        System.out.println("getRating : "+getRating(Long.parseLong(lectureId)));
     }
 }
