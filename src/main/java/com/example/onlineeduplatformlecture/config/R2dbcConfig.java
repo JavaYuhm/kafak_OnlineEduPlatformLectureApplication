@@ -33,6 +33,7 @@ public class R2dbcConfig extends AbstractR2dbcConfiguration {
         initializer.setConnectionFactory(connectionFactory);
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
         populator.addScript(new ClassPathResource("rating.sql"));
+        populator.addScript(new ClassPathResource("score.sql"));
         populator.addScript(new ClassPathResource("schema.sql"));
         initializer.setDatabasePopulator(populator);
         return initializer;

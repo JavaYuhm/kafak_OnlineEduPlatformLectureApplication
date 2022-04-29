@@ -1,16 +1,20 @@
 package com.example.onlineeduplatformlecture.model;
 
-import lombok.Data;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-@Data
-@Table(value = "CONTENT")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Content {
 
     @Id
@@ -36,19 +40,4 @@ public class Content {
         this.examYn = examYn;
     }
 
-    public int getContentId() {
-        return contentId;
-    }
-
-    public int getLectureId() {
-        return lectureId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public boolean isExamYn() {
-        return examYn;
-    }
 }

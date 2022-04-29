@@ -8,32 +8,31 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-@Table(value = "LECTURE")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @ToString
 public class Lecture {
 
     @Id
-    @Column(value = "lecture_id")
-    private  int lectureId;
+    private Long lectureId;
 
-    @Column(value = "title")
-    private  String title;
-    @Column(value = "location")
-    private  String location;
-    @Column(value = "exposed_yn")
+    private String title;
+
+    private String location;
+
     private int exposedYn;
 
-    @CreatedDate
-    LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
-    @LastModifiedDate
-    LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
+    public Lecture(String title, String location) {
+        this.title = title;
+        this.location = location;
+    }
 }
