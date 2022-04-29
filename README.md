@@ -17,12 +17,13 @@
 ### Docker 명령어
 
 docker container ls
+
 docker exec -it
+
 kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic lecture-open
 
 ![image](https://user-images.githubusercontent.com/99159721/165893739-d8e42434-078d-4aa3-a432-bba12e0bb9aa.png)
 
-![Uploading image.png…]()
 
 
 ### Lecture
