@@ -5,7 +5,18 @@ spring:
 #    url: r2dbc:h2:mem:///msa
 #    username: sa
 #    password:
-
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: lecture
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      
 server:
 #  port: 0
   port: 8080
@@ -23,3 +34,4 @@ logging:
     root: INFO
     org.springframework.r2dbc: DEBUG
 #debug: true
+
